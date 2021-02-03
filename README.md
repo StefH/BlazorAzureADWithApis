@@ -1,0 +1,2 @@
+# BlazorAzureADWithApis
+BlazorAzureADWithApis
