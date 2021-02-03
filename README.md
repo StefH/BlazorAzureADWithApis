@@ -1,2 +1,4 @@
 # BlazorAzureADWithApis
 BlazorAzureADWithApis
+
+https://github.com/damienbod/AzureADAuthRazorUiServiceApiCertificate
