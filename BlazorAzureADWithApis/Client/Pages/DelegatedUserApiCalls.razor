@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @attribute [Authorize]
 @inject HttpClient Http
+@inject IAccessTokenProvider P;
 
 <h1>Data from Delegated User API</h1>
 
@@ -36,7 +37,20 @@ else
     {
         try
         {
-            apiData = await Http.GetFromJsonAsync<string[]>("DelegatedUserApiCalls");
+            var t = await P.RequestAccessToken();
+            t.TryGetToken(out var token);
+            Console.WriteLine(token.Value);
+            Console.WriteLine(string.Join(",", token.GrantedScopes));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("1 ====" + ex);
+        }
+
+        try
+        {
+            apiData = await Http.GetFromJsonAsync<string[]>("https://localhost:44324/" +"ApiForServiceData");
+            //apiData = await Http.GetFromJsonAsync<string[]>("DelegatedUserApiCalls");
         }
         catch (AccessTokenNotAvailableException exception)
         {

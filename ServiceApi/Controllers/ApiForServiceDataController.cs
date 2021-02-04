@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceApi.Controllers
 {
-    [Authorize(Policy = "ValidateAccessTokenPolicy", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ApiForServiceDataController : ControllerBase

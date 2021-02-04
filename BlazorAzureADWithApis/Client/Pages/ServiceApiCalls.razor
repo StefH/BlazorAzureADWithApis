@@ -4,6 +4,8 @@
 @attribute [Authorize]
 @inject HttpClient Http
 
+@inject IAccessTokenProvider P;
+
 <h1>Data from Application API</h1>
 
 @if (apiData == null)
@@ -36,11 +38,38 @@ else
     {
         try
         {
-            apiData = await Http.GetFromJsonAsync<string[]>("ServiceApiCalls");
+            var t = await P.RequestAccessToken();
+            t.TryGetToken(out var token);
+            Console.WriteLine(token.Value);
+            Console.WriteLine(string.Join(",", token.GrantedScopes));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("1 ====" + ex);
+        }
+
+        try
+        {
+            var t = await P.RequestAccessToken(new AccessTokenRequestOptions
+            {
+                Scopes = new[] { "api://9549c3d0-648a-43d8-88be-ae33981eefd5/access_as_user", "api://61b557d0-0018-4f72-8a7d-6145a941962d/Application.Access" }
+            });
+            t.TryGetToken(out var token);
+            Console.WriteLine(token.Value);
+            Console.WriteLine(string.Join(",", token.GrantedScopes));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("2 ====" + ex);
+        }
+
+        try
+        {
+            apiData = await Http.GetFromJsonAsync<string[]>("https://localhost:44324/" +"ApiForServiceData");
         }
         catch (AccessTokenNotAvailableException exception)
         {
-            exception.Redirect();
+           // exception.Redirect();
         }
     }
 

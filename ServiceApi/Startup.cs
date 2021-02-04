@@ -25,9 +25,9 @@ namespace ServiceApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            IdentityModelEventSource.ShowPII = true;
-            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            //IdentityModelEventSource.ShowPII = true;
+            //JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
             services.AddSingleton<IAuthorizationHandler, HasServiceApiRoleHandler>();
 
@@ -37,21 +37,21 @@ namespace ServiceApi
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("ValidateAccessTokenPolicy", validateAccessTokenPolicy =>
-                {
-                    validateAccessTokenPolicy.Requirements.Add(new HasServiceApiRoleRequirement());
+                //options.AddPolicy("ValidateAccessTokenPolicy", validateAccessTokenPolicy =>
+                //{
+                //    validateAccessTokenPolicy.Requirements.Add(new HasServiceApiRoleRequirement());
                     
-                    // Validate id of application for which the token was created
-                    // In this case the UI application 
-                    validateAccessTokenPolicy.RequireClaim("azp", "2b50a014-f353-4c10-aace-024f19a55569");
+                //    // Validate id of application for which the token was created
+                //    // In this case the UI application 
+                //    validateAccessTokenPolicy.RequireClaim("azp", "2b50a014-f353-4c10-aace-024f19a55569");
 
-                    // only allow tokens which used "Private key JWT Client authentication"
-                    // // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
-                    // Indicates how the client was authenticated. For a public client, the value is "0". 
-                    // If client ID and client secret are used, the value is "1". 
-                    // If a client certificate was used for authentication, the value is "2".
-                    validateAccessTokenPolicy.RequireClaim("azpacr", "1");
-                });
+                //    // only allow tokens which used "Private key JWT Client authentication"
+                //    // // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
+                //    // Indicates how the client was authenticated. For a public client, the value is "0". 
+                //    // If client ID and client secret are used, the value is "1". 
+                //    // If a client certificate was used for authentication, the value is "2".
+                //    validateAccessTokenPolicy.RequireClaim("azpacr", "1");
+                //});
             });
 
             services.AddSwaggerGen(c =>
@@ -91,6 +91,12 @@ namespace ServiceApi
                 });
             });
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -99,6 +105,8 @@ namespace ServiceApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyPolicy");
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
