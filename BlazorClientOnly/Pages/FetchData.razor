@@ -1,0 +1,63 @@
+﻿@page "/fetchdata"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@attribute [Authorize]
+
+@inject HttpClient Http
+@inject IHttpClientFactory F
+@inject IAccessTokenProvider P
+
+<h1>Data from Delegated User API</h1>
+
+@if (apiData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in apiData)
+            {
+                <tr>
+                    <td>@data</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private string[] apiData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var t = await P.RequestAccessToken();
+            t.TryGetToken(out var token);
+            Console.WriteLine(token.Value);
+            Console.WriteLine(string.Join(",", token.GrantedScopes));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Token ====" + ex);
+        }
+
+        try
+        {
+            var http = F.CreateClient("BlazorAzureADWithApis.ServerAPI");
+            apiData = await http.GetFromJsonAsync<string[]>(Program.ServiceApiUrl + "/ApiForServiceData");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}

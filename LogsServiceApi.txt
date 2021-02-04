@@ -518,3 +518,10 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2021-02-04 20:50:36.998 +01:00 [INF] Executed endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
 2021-02-04 20:50:36.999 +01:00 [INF] HTTP GET /ApiForServiceData responded 200 in 1.7529 ms
 2021-02-04 20:50:36.999 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44324/ApiForServiceData - - - 200 - application/json;+charset=utf-8 2.2243ms
+2021-02-04 21:03:09.984 +01:00 [INF] Application is shutting down...
+2021-02-04 21:04:28.702 +01:00 [INF] User profile is available. Using 'C:\Users\StefHeyenrath\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-02-04 21:04:29.170 +01:00 [INF] Now listening on: http://localhost:5000
+2021-02-04 21:04:29.170 +01:00 [INF] Now listening on: https://localhost:5001
+2021-02-04 21:04:29.170 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-02-04 21:04:29.171 +01:00 [INF] Hosting environment: Production
+2021-02-04 21:04:29.171 +01:00 [INF] Content root path: C:\Users\StefHeyenrath\Documents\GitHub\BlazorAzureADWithApis\ServiceApi
