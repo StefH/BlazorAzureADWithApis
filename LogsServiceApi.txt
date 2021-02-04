@@ -525,3 +525,45 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2021-02-04 21:04:29.170 +01:00 [INF] Application started. Press Ctrl+C to shut down.
 2021-02-04 21:04:29.171 +01:00 [INF] Hosting environment: Production
 2021-02-04 21:04:29.171 +01:00 [INF] Content root path: C:\Users\StefHeyenrath\Documents\GitHub\BlazorAzureADWithApis\ServiceApi
+2021-02-04 21:11:11.301 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:5001/ApiForServiceData - -
+2021-02-04 21:11:11.311 +01:00 [INF] CORS policy execution successful.
+2021-02-04 21:11:11.316 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:5001/ApiForServiceData - - - 204 - - 16.8416ms
+2021-02-04 21:11:11.322 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ApiForServiceData - -
+2021-02-04 21:11:11.323 +01:00 [INF] CORS policy execution successful.
+2021-02-04 21:11:12.521 +01:00 [INF] Successfully validated the token.
+2021-02-04 21:11:12.529 +01:00 [INF] Authorization was successful.
+2021-02-04 21:11:12.530 +01:00 [INF] Executing endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
+2021-02-04 21:11:12.547 +01:00 [INF] Route matched with {action = "Get", controller = "ApiForServiceData"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[System.String] Get() on controller ServiceApi.Controllers.ApiForServiceDataController (ServiceApi).
+2021-02-04 21:11:12.553 +01:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-02-04 21:11:12.571 +01:00 [INF] Executed action ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi) in 18.6204ms
+2021-02-04 21:11:12.578 +01:00 [INF] Executed endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
+2021-02-04 21:11:12.582 +01:00 [INF] HTTP GET /ApiForServiceData responded 200 in 1220.0301 ms
+2021-02-04 21:11:12.585 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ApiForServiceData - - - 200 - application/json;+charset=utf-8 1263.1598ms
+2021-02-04 21:14:36.929 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:5001/ApiForServiceData - -
+2021-02-04 21:14:36.930 +01:00 [INF] CORS policy execution successful.
+2021-02-04 21:14:36.931 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:5001/ApiForServiceData - - - 204 - - 1.9729ms
+2021-02-04 21:14:36.935 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ApiForServiceData - -
+2021-02-04 21:14:36.936 +01:00 [INF] CORS policy execution successful.
+2021-02-04 21:14:36.938 +01:00 [INF] Successfully validated the token.
+2021-02-04 21:14:36.939 +01:00 [INF] Authorization was successful.
+2021-02-04 21:14:36.940 +01:00 [INF] Executing endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
+2021-02-04 21:14:36.940 +01:00 [INF] Route matched with {action = "Get", controller = "ApiForServiceData"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[System.String] Get() on controller ServiceApi.Controllers.ApiForServiceDataController (ServiceApi).
+2021-02-04 21:14:36.941 +01:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-02-04 21:14:36.942 +01:00 [INF] Executed action ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi) in 1.1695ms
+2021-02-04 21:14:36.943 +01:00 [INF] Executed endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
+2021-02-04 21:14:36.943 +01:00 [INF] HTTP GET /ApiForServiceData responded 200 in 6.4418 ms
+2021-02-04 21:14:36.944 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ApiForServiceData - - - 200 - application/json;+charset=utf-8 8.2221ms
+2021-02-04 21:14:55.903 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:5001/ApiForServiceData - -
+2021-02-04 21:14:55.904 +01:00 [INF] CORS policy execution successful.
+2021-02-04 21:14:55.904 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:5001/ApiForServiceData - - - 204 - - 0.9447ms
+2021-02-04 21:14:55.906 +01:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ApiForServiceData - -
+2021-02-04 21:14:55.907 +01:00 [INF] CORS policy execution successful.
+2021-02-04 21:14:55.915 +01:00 [INF] Successfully validated the token.
+2021-02-04 21:14:55.916 +01:00 [INF] Authorization was successful.
+2021-02-04 21:14:55.917 +01:00 [INF] Executing endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
+2021-02-04 21:14:55.917 +01:00 [INF] Route matched with {action = "Get", controller = "ApiForServiceData"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[System.String] Get() on controller ServiceApi.Controllers.ApiForServiceDataController (ServiceApi).
+2021-02-04 21:14:55.918 +01:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2021-02-04 21:14:55.919 +01:00 [INF] Executed action ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi) in 0.7398ms
+2021-02-04 21:14:55.919 +01:00 [INF] Executed endpoint 'ServiceApi.Controllers.ApiForServiceDataController.Get (ServiceApi)'
+2021-02-04 21:14:55.920 +01:00 [INF] HTTP GET /ApiForServiceData responded 200 in 11.1586 ms
+2021-02-04 21:14:55.921 +01:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ApiForServiceData - - - 200 - application/json;+charset=utf-8 14.1851ms
